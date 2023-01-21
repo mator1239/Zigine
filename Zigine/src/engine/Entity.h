@@ -3,15 +3,20 @@
 #include "Zigine.h"
 #include "Renderer.h"
 
+#include "..\utils\Time.h"
+
 class CBaseEntity
 {
 public:
 	CBaseEntity();
 	virtual ~CBaseEntity();
 
-	void setPostion(sf::Vector2f pos);
-	void setTexture(const std::string& name);
 	void setEntityIndex(int entityIndex);
+
+	void setPostion(sf::Vector2f pos);
+
+	void setTexture(const std::string& name);
+	void setScale(sf::Vector2f factor);
 
 	inline sf::Texture getTexture() { return _texture; }
 	inline sf::Vector2f getPosition() { return _pos; }
@@ -28,5 +33,5 @@ protected:
 	sf::Sprite _sprite;
 	std::shared_ptr<Renderer> _render;
 
-	int _entityIndex = 0;
+	int _entityIndex;
 };

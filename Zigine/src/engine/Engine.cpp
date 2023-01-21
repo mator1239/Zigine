@@ -1,7 +1,13 @@
 #include "Engine.h"
+#include <chrono>
 
 Engine::Engine()
 {
+}
+
+Engine::~Engine()
+{
+	Time::relese();
 }
 
 void Engine::create(int width, int height, const std::string &title, bool verticalSync, sf::Color background, sf::Uint32 style)
@@ -11,16 +17,17 @@ void Engine::create(int width, int height, const std::string &title, bool vertic
 	start();
 	_entityManager->setupEntities(_render);
 
+	Time::init();
+
 	while (_render->isOpen())
 	{
-		update(0.0f);
+		Time::update();
+
+		update();
 		_entityManager->updateEntities();
 
-		// Render
 		_render->clear();
-
 		_entityManager->drawEntities();
-
 		_render->display();
 	}
 }

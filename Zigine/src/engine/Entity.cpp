@@ -22,6 +22,11 @@ void CBaseEntity::setTexture(const std::string &name)
 	_sprite.setTexture(_texture);
 }
 
+void CBaseEntity::setScale(sf::Vector2f factor)
+{
+	_sprite.setScale(factor);
+}
+
 void CBaseEntity::setEntityIndex(int entityIndex)
 {
 	_entityIndex = entityIndex;

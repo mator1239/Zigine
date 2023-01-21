@@ -11,8 +11,9 @@ public:
 	{
 		_entityManager->addEntity(bird);
 		bird->setPostion(sf::Vector2f(40, 50));
+		bird->setScale(sf::Vector2f(2, 2));
 	}
-	virtual void update(float dt)
+	virtual void update()
 	{
 	}
 };
@@ -20,6 +21,6 @@ public:
 int main()
 {
 	Game game;
-	game.create(800, 600, "Territory", true, sf::Color::Black);
+	game.create(400, 600, "Territory", true, sf::Color::Black);
 	return 0;
 }

@@ -1,2 +1,8 @@
-﻿  Entity.cpp
+﻿  Bird.cpp
+  Zigine.cpp
+  Engine.cpp
+  Entity.cpp
+  EntityManager.cpp
+  Time.cpp
+  Создание кода...
   Zigine.vcxproj -> C:\Users\Vladimir\source\repos\Zigine\Debug\Zigine.exe
