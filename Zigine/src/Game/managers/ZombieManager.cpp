@@ -86,8 +86,7 @@ void ZombieManager::LoadConfiguration(Zombie* zombie)
 	zombie->LoadAnimationTexture(zombieConfig.m_Texture, zombieConfig.m_Key,
 		zombieConfig.m_Skeleton, zombieConfig.m_Atlas);
 
-	LOG(PrintMessageType::Success, "[ZombieManager::LoadConfiguration] %s%d", 
-		"Load zombie config with id: ", zombieId);
+	LOG(PrintMessageType::Success, "%s%d", "Load zombie config with id: ", zombieId);
 }
 
 void ZombieManager::Add(Zombie* zombie)

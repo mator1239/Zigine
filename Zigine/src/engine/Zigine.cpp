@@ -28,12 +28,13 @@ void CoreLog::SetConsoleTextColor(PrintMessageType type)
 	SetConsoleTextAttribute(hConsole, byteColor);
 }
 
-void CoreLog::PrintMessage(const std::string& format, ...)
+void CoreLog::PrintMessage(const std::string& functionName, const std::string& format, ...)
 {
 	const char* charFormat = format.c_str();
 
 	va_list args;
 	va_start(args, charFormat);
+	printf("[%s]: ", functionName.c_str());
 	vprintf(charFormat, args);
 	va_end(args);
 

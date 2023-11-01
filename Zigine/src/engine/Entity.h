@@ -39,7 +39,7 @@ public:
 	inline vector2 GetOrigin() const { return m_Shape.getOrigin(); }
 	inline float GetRotation() const { return m_Shape.getRotation(); }
 
-	inline uint32_t GetUserType() const { return 0; }
+	virtual inline uint32_t GetUserType() const { return 0; }
 
 	// God dammit... SDL3 > SFML
 	inline vector2 GetSize() const { return vector2(GetTexture()->getSize()); }

@@ -23,8 +23,8 @@ Zombie::Zombie(const vector2& position)
 
 	b2FixtureDef fixture;
 	fixture.shape = &boxShape;
-	//fixture.filter.categoryBits = ZOMBIE_TYPE;
-	//fixture.filter.maskBits = MASK_ZOMBIE;
+	fixture.filter.categoryBits = ZOMBIE_TYPE;
+	fixture.filter.maskBits = MASK_ZOMBIE;
 
 	//ContactCallback callback { this, ZOMBIE_TYPE };
 	fixture.userData.pointer = reinterpret_cast<uintptr_t>(this);
@@ -81,7 +81,7 @@ bool Zombie::UpdateAnimationState()
 
 void Zombie::TakeDamage(const float damage)
 {
-	LOG_RETURN(damage <= 0, "[Zombie::Damage] damage <= 0?");
+	LOG_RETURN(damage <= 0, "damage <= 0?");
 
 	m_Health -= damage;
 
@@ -91,7 +91,7 @@ void Zombie::TakeDamage(const float damage)
 
 void Zombie::SetEnemy(Entity* enemy)
 {
-	LOG_RETURN(enemy == nullptr, "[Zombie::SetEnemy] enemy was nullptr. Wtf?");
+	LOG_RETURN(enemy == nullptr, "enemy was nullptr. Wtf?");
 
 	m_Enemy = enemy;
 }

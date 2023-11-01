@@ -60,29 +60,14 @@ namespace CoreLog
 	static PrintMessageType m_Type;
 
 	void SetConsoleTextColor(PrintMessageType type = PrintMessageType::Default);
-	void PrintMessage(const std::string& format, ...);
+	void PrintMessage(const std::string& functionName, const std::string& format, ...);
 }
 
-#define ASSERT_CONDITION(condition) if (!(condition))
-#define ASSERT_MESSAGE(format, ...) CoreLog::PrintMessage(format, __VA_ARGS__);
-#define ASSERT(condition, format, ...)\
-	ASSERT_CONDITION(condition)\
-	{\
-		CoreLog::SetConsoleTextColor(PrintMessageType::Error);\
-		ASSERT_MESSAGE(format, __VA_ARGS__)\
-	}\
-
-#define ASSERT_BOOLEAN(condition, format, ...)\
-	ASSERT_CONDITION(condition)\
-	{\
-		CoreLog::SetConsoleTextColor(PrintMessageType::Error);\
-		ASSERT_MESSAGE(format, __VA_ARGS__)\
-		return false;\
-	}\
+#define _T(s) s
 
 #define LOG(type, format, ...)\
 		CoreLog::SetConsoleTextColor(type);\
-		CoreLog::PrintMessage(format, __VA_ARGS__);\
+		CoreLog::PrintMessage(_T(__FUNCTION__), format, __VA_ARGS__);\
 
 #define LOG_NULLPTR(ptr, rightptr, format, ...)\
 		if (ptr == nullptr) {\
@@ -94,6 +79,11 @@ namespace CoreLog
 	if (condition) {\
 		LOG(PrintMessageType::Error, format, __VA_ARGS__)\
 		return; }\
+
+#define LOG_CONDITION(condition, format, ...)\
+	if (!(condition)) {\
+		LOG(PrintMessageType::Error, format, __VA_ARGS__)\
+		return nullptr; }\
 
 #define DEFINE_MANAGER_ARGUMENT_FUNCTION(className, functionName, makeStatic)\
 	template <class _T, class... _Types>\

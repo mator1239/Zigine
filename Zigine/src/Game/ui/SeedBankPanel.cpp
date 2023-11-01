@@ -10,12 +10,9 @@ SeedBankPanel::SeedBankPanel()
 
 void SeedBankPanel::AddCard(CardPanel* card)
 {
-	vector2 position = { GetPosition().x + 85.0f, 10.0f };
-	for (auto& panel : m_Cards)
-		position.x += CARD_X + 5.0f;
+	vector2 position = { GetPosition().x + 85.0f + ((CARD_X + 5.0f) * m_Cards.size()), 10.0f};
 
 	card->SetPosition(position);
-
 	m_Cards.push_back(card);
 }
 

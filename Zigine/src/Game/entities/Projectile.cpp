@@ -5,22 +5,6 @@
 
 #include "Object.h"
 
-float Length(const vector2& vec)
-{
-	return std::sqrtf(vec.x * vec.x + vec.y * vec.y);
-}
-
-vector2 Normalize(const vector2& vec)
-{
-	float len = Length(vec);
-	return { vec.x / len, vec.y / len };
-}
-
-float Product(const vector2& a, const vector2& b)
-{
-	return a.x * b.x + a.y * b.y;
-}
-
 Projectile::Projectile(const vector2& position, const vector2& direction, const float damage, const float speed)
 	: m_Direction(direction)
 	, m_Damage(damage)
@@ -43,10 +27,8 @@ Projectile::Projectile(const vector2& position, const vector2& direction, const 
 
 	b2FixtureDef fixture;
 	fixture.shape = &boxShape;
-	//fixture.filter.categoryBits = PROJECTILE_TYPE;
-	//fixture.filter.maskBits = MASK_PROJECTILE;
-
-	//ContactCallback callback { this, PROJECTILE_TYPE };
+	fixture.filter.categoryBits = PROJECTILE_TYPE;
+	fixture.filter.maskBits = MASK_PROJECTILE;
 	fixture.userData.pointer = reinterpret_cast<uintptr_t>(this);
 
 	m_Body->CreateFixture(&fixture);

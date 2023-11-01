@@ -19,9 +19,6 @@ void ContactListener::BeginContact(b2Contact* contact)
 	b2Fixture* fixtureA = contact->GetFixtureA();
 	b2Fixture* fixtureB = contact->GetFixtureB();
 
-	//ContactCallback* callbackA = reinterpret_cast<ContactCallback*>(fixtureA->GetUserData().pointer);
-	//ContactCallback* callbackB = reinterpret_cast<ContactCallback*>(fixtureB->GetUserData().pointer);
-
 	Entity* entityA = reinterpret_cast<Entity*>(fixtureA->GetUserData().pointer);
 	Entity* entityB = reinterpret_cast<Entity*>(fixtureB->GetUserData().pointer);
 
@@ -37,7 +34,17 @@ void ContactListener::BeginContact(b2Contact* contact)
 		}
 		break;
 	case ZOMBIE_TYPE:
-
+		switch (entityTypeB)
+		{
+		case PROJECTILE_TYPE:
+			{
+				Projectile* projectile = static_cast<Projectile*>(entityB);
+				projectile->TakeDamage(entityA);
+			}	
+			break;
+		case PLANT_TYPE:
+			break;
+		}
 		break;
 	}
 }
@@ -58,6 +65,11 @@ void GameState::OnAttach()
 	Zombie* zombie = new Zombie(vector2(537, 222));
 
 	m_SeedPanel = new SeedBankPanel();
+	m_SeedPanel->AddCard(new CardPanel("plant_sunflower"));
+	m_SeedPanel->AddCard(new CardPanel("plant_sunflower"));
+	m_SeedPanel->AddCard(new CardPanel("plant_sunflower"));
+	m_SeedPanel->AddCard(new CardPanel("plant_sunflower"));
+	m_SeedPanel->AddCard(new CardPanel("plant_sunflower"));
 	m_SeedPanel->AddCard(new CardPanel("plant_sunflower"));
 	m_SeedPanel->AddCard(new CardPanel("plant_sunflower"));
 	m_SeedPanel->SetPosition(vector2(DEFAULT_TILE_START_POSITION_X - TILE_SIZE_X, 0.0f));
@@ -126,9 +138,9 @@ void GameState::OnUpdate()
 		m_IsPlantReady = false;
 		m_IsPlantSelected = false;
 
-		Plant* plant = static_cast<Plant*>(Entity::Create(m_CardPanel->GetName()));
-		plant->SetPositon(m_TilePlant->GetPosition());
-		plant->SetOrigin(m_TilePlant->GetOrigin());
+		std::string className = m_CardPanel->GetName();
+		Plant* plant = Plant::Create(className);
+		plant->SetTilePanelSettings(m_TilePlant);
 
 		const uint32_t tileId = m_CurrentTile.GetId();
 		Tile& tile = m_Map->GetTile(tileId);
@@ -137,15 +149,14 @@ void GameState::OnUpdate()
 		ResetCardPanel();
 		ResetPlantShadow();
 
-		LOG(PrintMessageType::Default, "[GameState::OnUpdate] Plant spawned");
+		LOG(PrintMessageType::Default, "Plant spawned");
 	}
 
 	if (m_IsPlantSelected)
 	{
 		vector2 position { Input::getPosition() };
 
-		if (m_Map->GetTile(position, m_CurrentTile) 
-			&& !m_CurrentTile.GetPlant())
+		if (m_Map->GetTile(position, m_CurrentTile) && !m_CurrentTile.GetPlant())
 		{
 			m_TilePlant->SetVisible(true);
 			m_TilePlant->SetPosition(m_CurrentTile.GetCenter());

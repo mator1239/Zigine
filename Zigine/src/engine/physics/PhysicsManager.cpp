@@ -53,7 +53,7 @@ b2Body* PhysicsManager::Add(const b2BodyDef* definition)
 
 void PhysicsManager::Remove(b2Body* body)
 {
-	LOG_RETURN(body != nullptr, "[PhysicsManager::Remove]: %s", "body was nullptr");
+	LOG_RETURN(body != nullptr, "%s", "body was nullptr");
 
 	m_World->DestroyBody(body);
 }
