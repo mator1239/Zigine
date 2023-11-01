@@ -290,6 +290,7 @@
     <ClInclude Include="src\engine\ui\PanelManager.h" />
     <ClInclude Include="src\engine\utils\Base.h" />
     <ClInclude Include="src\engine\utils\Input.h" />
+    <ClInclude Include="src\engine\utils\Math.h" />
     <ClInclude Include="src\engine\utils\pugiconfig.hpp" />
     <ClInclude Include="src\engine\utils\pugixml.hpp" />
     <ClInclude Include="src\engine\utils\Time.h" />

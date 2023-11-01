@@ -118,16 +118,5 @@ namespace CoreLog
 #define interface_class class
 #define abstract_class class
 
-typedef sf::Vector2f vector2;
-typedef sf::Vector2i vector2i;
-typedef sf::Vector2u vector2u;
-
-static vector2 vector2_origin(0.0f, 0.0f);
-
-template <class T>
-inline float LengthSqr(const sf::Vector2<T> vec)
-{
-	return (vec.x * vec.x + vec.y * vec.y);
-}
-
 #include "utils/Timer.h"
+#include "utils/Math.h"
