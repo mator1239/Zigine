@@ -1,8 +1,18 @@
-﻿  Bird.cpp
-  Zigine.cpp
+﻿  Game.cpp
+  BaseGameState.cpp
+  GameOverState.cpp
   Engine.cpp
   Entity.cpp
   EntityManager.cpp
+  Renderer.cpp
+  StateManager.cpp
+  Zigine.cpp
+  PhysicsAllCollision.cpp
+  PhysicsManager.cpp
+  Box.cpp
+  Collider.cpp
+  RigidBody.cpp
+  Panel.cpp
   Time.cpp
   Создание кода...
-  Zigine.vcxproj -> C:\Users\Vladimir\source\repos\Zigine\Debug\Zigine.exe
+  Zigine.vcxproj -> D:\Projects\Zigine\Debug\Zigine.exe

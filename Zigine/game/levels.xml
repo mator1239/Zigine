@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<levels>
+  <level name="1-0" center_x="-3" center_y="5">
+    <tiles>
+      <!--<tile id="16" center_x="722" center_y="232" size_x="70" size_y="95"></tile>-->
+      <tile id="1" center_y="5"></tile>
+      <tile id="2"></tile>
+      <tile id="3"></tile>
+      <tile id="4"></tile>
+      <tile id="5"></tile>
+      <tile id="6"></tile>
+      <tile id="7"></tile>
+      <tile id="8" center_x="-5" center_y="5"></tile>
+      <tile id="9" center_x="-8" center_y="5" size_x="85" size_y="95"></tile>
+      
+      <tile id="10" center_x ="0" center_y="5"></tile>
+      <tile id="11"></tile>
+      <tile id="12"></tile>
+      <tile id="13"></tile>
+      <tile id="14"></tile>
+      <tile id="15"></tile>
+      <tile id="16" center_x="-5"></tile>
+      <tile id="17" center_x="-10" center_y="5"></tile>
+      <tile id="18" center_x="-5" size_x="85" size_y="95"></tile>
+      
+      <tile id="19" center_y="5"></tile>
+      <tile id="20"></tile>
+      <tile id="21"></tile>
+      <tile id="22"></tile>
+      <tile id="23"></tile>
+      <tile id="24"></tile>
+      <tile id="25"></tile>
+      <tile id="26"></tile>
+      <tile id="27"></tile>
+      
+      <tile id="28" center_y="5"></tile>
+      <tile id="29"></tile>
+      <tile id="30"></tile>
+      <tile id="31"></tile>
+      <tile id="32"></tile>
+      <tile id="33"></tile>
+      <tile id="34" center_x="0"></tile>
+      <tile id="35"></tile>
+      <tile id="36"></tile>
+      
+      <tile id="37" center_y="5"></tile>
+      <tile id="38"></tile>
+      <tile id="39"></tile>
+      <tile id="40"></tile>
+      <tile id="41"></tile>
+      <tile id="42"></tile>
+      <tile id="43"></tile>
+      <tile id="44"></tile>
+      <tile id="45"></tile>
+    </tiles>
+  </level>
+</levels>

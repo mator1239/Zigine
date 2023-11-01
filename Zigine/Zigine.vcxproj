@@ -23,32 +23,32 @@
     <ProjectGuid>{A4912D72-34F9-440D-B658-BEFDBDF62FDE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Zigine</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -75,12 +75,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Projects\Zigine\SDK;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Projects\Zigine\SDK;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -91,7 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\SDK\SFML_X86\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;..\SDK\SFML_X86\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,20 +104,19 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;_DEBUG;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\SDK\SFML_X64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;..\SDK\SFML_X64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\SDK\SFML_X64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;openal32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\SDK\box2d\x64;..\SDK\lua;..\SDK\Dragon\Debug;..\SDK;..\SDK\SFML_X64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;openal32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;pugixml_debug.lib;dragonBones.lib;lua54.lib;box2d_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -129,7 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\SDK\SFML_X86\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;..\SDK\SFML_X86\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,40 +146,174 @@
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\SDK\SFML_X64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;..\SDK\SFML_X64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\SDK\SFML_X64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;openal32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-audio-s.lib;sfml-network-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\SDK\box2d\x64;..\SDK\lua;..\SDK;..\SDK\Dragon\Release;..\SDK\SFML_X64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;openal32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-audio-s.lib;sfml-network-s.lib;dragonbones.lib;pugixml.lib;lua54.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Bird.cpp" />
+    <ClCompile Include="src\engine\AnimationEntity.cpp" />
+    <ClCompile Include="src\engine\animation\Animation.cpp" />
+    <ClCompile Include="src\engine\core\ImguiLayer.cpp" />
+    <ClCompile Include="src\engine\core\LayerStack.cpp" />
+    <ClCompile Include="src\engine\dragonBones\SFMLArmatureDisplay.cpp" />
+    <ClCompile Include="src\engine\dragonBones\SFMLArmatureProxy.cpp" />
+    <ClCompile Include="src\engine\dragonBones\SFMLFactory.cpp" />
+    <ClCompile Include="src\engine\dragonBones\SFMLSlot.cpp" />
+    <ClCompile Include="src\engine\dragonBones\SFMLTextureAtlasData.cpp" />
     <ClCompile Include="src\engine\Engine.cpp" />
     <ClCompile Include="src\engine\Entity.cpp" />
-    <ClCompile Include="src\engine\EntityManager.cpp" />
+    <ClCompile Include="src\engine\imgui\imgui-SFML.cpp" />
+    <ClCompile Include="src\engine\imgui\imgui.cpp" />
+    <ClCompile Include="src\engine\imgui\imgui_draw.cpp" />
+    <ClCompile Include="src\engine\imgui\imgui_tables.cpp" />
+    <ClCompile Include="src\engine\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\engine\managers\EntityManager.cpp" />
+    <ClCompile Include="src\engine\managers\FileSystem.cpp" />
+    <ClCompile Include="src\engine\managers\ScriptManager.cpp" />
+    <ClCompile Include="src\engine\pch.cpp" />
+    <ClCompile Include="src\engine\physics\PhysicsManager.cpp" />
     <ClCompile Include="src\engine\Renderer.cpp" />
-    <ClCompile Include="src\utils\Time.cpp" />
-    <ClCompile Include="src\Zigine.cpp" />
+    <ClCompile Include="src\engine\managers\TextureManager.cpp" />
+    <ClCompile Include="src\engine\ui\Button.cpp" />
+    <ClCompile Include="src\engine\ui\Label.cpp" />
+    <ClCompile Include="src\engine\ui\Panel.cpp" />
+    <ClCompile Include="src\engine\ui\PanelManager.cpp" />
+    <ClCompile Include="src\engine\utils\Input.cpp" />
+    <ClCompile Include="src\engine\utils\pugixml.cpp" />
+    <ClCompile Include="src\engine\utils\Time.cpp" />
+    <ClCompile Include="src\engine\utils\Timer.cpp" />
+    <ClCompile Include="src\engine\Zigine.cpp" />
+    <ClCompile Include="src\Game\Board.cpp" />
+    <ClCompile Include="src\Game\entities\Plant.cpp" />
+    <ClCompile Include="src\Game\entities\Projectile.cpp" />
+    <ClCompile Include="src\Game\entities\Sunflower.cpp" />
+    <ClCompile Include="src\Game\entities\Zombie.cpp" />
+    <ClCompile Include="src\Game\managers\ProjectileManager.cpp" />
+    <ClCompile Include="src\Game\managers\ZombieManager.cpp" />
+    <ClCompile Include="src\Game\Map.cpp" />
+    <ClCompile Include="src\Game\states\GameOver.cpp" />
+    <ClCompile Include="src\Game\states\GameState.cpp" />
+    <ClCompile Include="src\Game\states\GameMenu.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Game\ui\CardPanel.cpp" />
+    <ClCompile Include="src\Game\ui\SeedBankPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Bird.h" />
+    <ClInclude Include="src\engine\AnimationEntity.h" />
+    <ClInclude Include="src\engine\animation\Animation.h" />
+    <ClInclude Include="src\engine\box2d\b2_api.h" />
+    <ClInclude Include="src\engine\box2d\b2_block_allocator.h" />
+    <ClInclude Include="src\engine\box2d\b2_body.h" />
+    <ClInclude Include="src\engine\box2d\b2_broad_phase.h" />
+    <ClInclude Include="src\engine\box2d\b2_chain_shape.h" />
+    <ClInclude Include="src\engine\box2d\b2_circle_shape.h" />
+    <ClInclude Include="src\engine\box2d\b2_collision.h" />
+    <ClInclude Include="src\engine\box2d\b2_common.h" />
+    <ClInclude Include="src\engine\box2d\b2_contact.h" />
+    <ClInclude Include="src\engine\box2d\b2_contact_manager.h" />
+    <ClInclude Include="src\engine\box2d\b2_distance.h" />
+    <ClInclude Include="src\engine\box2d\b2_distance_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_draw.h" />
+    <ClInclude Include="src\engine\box2d\b2_dynamic_tree.h" />
+    <ClInclude Include="src\engine\box2d\b2_edge_shape.h" />
+    <ClInclude Include="src\engine\box2d\b2_fixture.h" />
+    <ClInclude Include="src\engine\box2d\b2_friction_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_gear_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_growable_stack.h" />
+    <ClInclude Include="src\engine\box2d\b2_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_math.h" />
+    <ClInclude Include="src\engine\box2d\b2_motor_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_mouse_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_polygon_shape.h" />
+    <ClInclude Include="src\engine\box2d\b2_prismatic_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_pulley_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_revolute_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_rope.h" />
+    <ClInclude Include="src\engine\box2d\b2_settings.h" />
+    <ClInclude Include="src\engine\box2d\b2_shape.h" />
+    <ClInclude Include="src\engine\box2d\b2_stack_allocator.h" />
+    <ClInclude Include="src\engine\box2d\b2_timer.h" />
+    <ClInclude Include="src\engine\box2d\b2_time_of_impact.h" />
+    <ClInclude Include="src\engine\box2d\b2_time_step.h" />
+    <ClInclude Include="src\engine\box2d\b2_types.h" />
+    <ClInclude Include="src\engine\box2d\b2_weld_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_wheel_joint.h" />
+    <ClInclude Include="src\engine\box2d\b2_world.h" />
+    <ClInclude Include="src\engine\box2d\b2_world_callbacks.h" />
+    <ClInclude Include="src\engine\box2d\box2d.h" />
+    <ClInclude Include="src\engine\core\ImguiLayer.h" />
+    <ClInclude Include="src\engine\core\Layer.h" />
+    <ClInclude Include="src\engine\core\LayerStack.h" />
+    <ClInclude Include="src\engine\dragonBones\SFMLArmatureDisplay.h" />
+    <ClInclude Include="src\engine\dragonBones\SFMLArmatureProxy.h" />
+    <ClInclude Include="src\engine\dragonBones\SFMLDisplay.h" />
+    <ClInclude Include="src\engine\dragonBones\SFMLEventDispatcher.h" />
+    <ClInclude Include="src\engine\dragonBones\SFMLFactory.h" />
+    <ClInclude Include="src\engine\dragonBones\SFMLNode.h" />
+    <ClInclude Include="src\engine\dragonBones\SFMLSlot.h" />
+    <ClInclude Include="src\engine\dragonBones\SFMLTextureAtlasData.h" />
+    <ClInclude Include="src\engine\dragonBones\SFMLTextureData.h" />
+    <ClInclude Include="src\engine\imgui\imconfig-SFML.h" />
+    <ClInclude Include="src\engine\imgui\imconfig.h" />
+    <ClInclude Include="src\engine\imgui\imgui-SFML.h" />
+    <ClInclude Include="src\engine\imgui\imgui-SFML_export.h" />
+    <ClInclude Include="src\engine\imgui\imgui.h" />
+    <ClInclude Include="src\engine\imgui\imgui_internal.h" />
+    <ClInclude Include="src\engine\imgui\imstb_rectpack.h" />
+    <ClInclude Include="src\engine\imgui\imstb_textedit.h" />
+    <ClInclude Include="src\engine\imgui\imstb_truetype.h" />
+    <ClInclude Include="src\engine\managers\FileSystem.h" />
+    <ClInclude Include="src\engine\managers\IManagerUnkown.h" />
+    <ClInclude Include="src\engine\managers\ScriptManager.h" />
+    <ClInclude Include="src\engine\memory\IMemoryAllocator.h" />
+    <ClInclude Include="src\engine\pch.h" />
+    <ClInclude Include="src\engine\physics\PhysicsManager.h" />
+    <ClInclude Include="src\engine\managers\TextureManager.h" />
+    <ClInclude Include="src\engine\ui\Base.h" />
+    <ClInclude Include="src\engine\ui\Button.h" />
+    <ClInclude Include="src\engine\ui\Image.h" />
+    <ClInclude Include="src\engine\ui\Label.h" />
+    <ClInclude Include="src\engine\ui\Panel.h" />
+    <ClInclude Include="src\engine\ui\PanelManager.h" />
+    <ClInclude Include="src\engine\utils\Base.h" />
+    <ClInclude Include="src\engine\utils\Input.h" />
+    <ClInclude Include="src\engine\utils\pugiconfig.hpp" />
+    <ClInclude Include="src\engine\utils\pugixml.hpp" />
+    <ClInclude Include="src\engine\utils\Time.h" />
+    <ClInclude Include="src\engine\utils\Timer.h" />
+    <ClInclude Include="src\Game\Const.h" />
+    <ClInclude Include="src\Game\entities\Object.h" />
+    <ClInclude Include="src\Game\entities\Plant.h" />
+    <ClInclude Include="src\Game\entities\Projectile.h" />
+    <ClInclude Include="src\Game\entities\Zombie.h" />
+    <ClInclude Include="src\Game\managers\ProjectileManager.h" />
+    <ClInclude Include="src\Game\managers\ZombieManager.h" />
+    <ClInclude Include="src\Game\Map.h" />
+    <ClInclude Include="src\Game\states\GameOver.h" />
+    <ClInclude Include="src\Game\states\GameState.h" />
     <ClInclude Include="src\engine\Engine.h" />
     <ClInclude Include="src\engine\Entity.h" />
-    <ClInclude Include="src\engine\EntityManager.h" />
+    <ClInclude Include="src\engine\managers\EntityManager.h" />
     <ClInclude Include="src\engine\Renderer.h" />
     <ClInclude Include="src\engine\Zigine.h" />
-    <ClInclude Include="src\utils\Time.h" />
+    <ClInclude Include="src\Game\states\GameMenu.h" />
+    <ClInclude Include="src\Game\Board.h" />
+    <ClInclude Include="src\Game\ui\Base.h" />
+    <ClInclude Include="src\Game\ui\SeedBankPanel.h" />
+    <ClInclude Include="src\Game\ui\CardPanel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

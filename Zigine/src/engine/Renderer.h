@@ -7,19 +7,25 @@ public:
 	Renderer();
 	virtual ~Renderer() = default;
 
-	void create(int screenWidth, int screenHeight, const std::string &title,
+	static void init(int screenWidth, int screenHeight, const std::string &title,
 		bool verticalSync, sf::Color background, sf::Uint32 style);
 
-	void drawSprite(sf::Sprite& sprite);
+	static void drawSprite(sf::Sprite& sprite);
+	static void drawPrimitive(const sf::Drawable& drawable);
+	static void drawPrimitive(const sf::Drawable* drawable);
 
-	void clear();
-	void display();
+	static void setView(const sf::View& view);
 
-	bool isOpen() { return _window->isOpen(); }
+	static vector2 mapPixelToCoords(const vector2i& position);
 
-	std::shared_ptr<sf::RenderWindow> renderWindow() { return _window; }
+	static void clear();
+	static void display();
+
+	static bool isOpen() { return _window->isOpen(); }
+	static vector2u getSize() { return _window->getSize(); }
+	static std::shared_ptr<sf::RenderWindow> getWindow() { return _window; }
 private:
-	sf::Color _background;
+	static sf::Color _background;
 
-	const std::shared_ptr<sf::RenderWindow> _window = std::make_shared<sf::RenderWindow>();
+	static std::shared_ptr<sf::RenderWindow> _window;
 };

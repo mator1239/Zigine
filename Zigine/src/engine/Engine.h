@@ -1,21 +1,33 @@
 #pragma once
 #include "Renderer.h"
-#include "EntityManager.h"
+#include "managers/EntityManager.h"
 
-#include "..\utils\Time.h"
+#include "utils/Time.h"
+#include "utils/Input.h"
+
+#include "core/LayerStack.h"
+#include "core/ImguiLayer.h"
 
 class Engine
 {
 public:
-	Engine();
+	Engine(int width = 1024, int height = 768, const std::string& title = "Default", bool verticalSync = true,
+		sf::Color background = sf::Color::Black, sf::Uint32 style = sf::Style::Default);
 	virtual ~Engine();
 
-	void create(int width, int height, const std::string& title, bool verticalSync,
-		sf::Color background, sf::Uint32 style = sf::Style::Default);
-protected:
-	virtual void start() {}
-	virtual void update() {}
+	void PushLayer(Layer* layer);
+	void PushOverlay(Layer* layer);
 
-	const std::shared_ptr<Renderer> _render = std::make_shared<Renderer>();
-	const std::shared_ptr<EntityManager> _entityManager = std::make_shared<EntityManager>();
+	void Create();
+
+	ImguiLayer* GetImguiLayer() { return m_ImguiLayer; }
+
+	static Engine* GetInstance() { return m_Instance; }
+protected:
+	virtual void Init() {}
+
+	LayerStack m_LayerStack;
+	ImguiLayer* m_ImguiLayer;
+private:
+	static Engine* m_Instance;
 };
