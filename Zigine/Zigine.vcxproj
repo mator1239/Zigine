@@ -182,6 +182,7 @@
     <ClCompile Include="src\engine\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\engine\managers\EntityManager.cpp" />
     <ClCompile Include="src\engine\managers\FileSystem.cpp" />
+    <ClCompile Include="src\engine\managers\ResourceManager.cpp" />
     <ClCompile Include="src\engine\managers\ScriptManager.cpp" />
     <ClCompile Include="src\engine\pch.cpp" />
     <ClCompile Include="src\engine\physics\PhysicsManager.cpp" />
@@ -276,7 +277,7 @@
     <ClInclude Include="src\engine\imgui\imstb_textedit.h" />
     <ClInclude Include="src\engine\imgui\imstb_truetype.h" />
     <ClInclude Include="src\engine\managers\FileSystem.h" />
-    <ClInclude Include="src\engine\managers\IManagerUnkown.h" />
+    <ClInclude Include="src\engine\managers\ResourceManager.h" />
     <ClInclude Include="src\engine\managers\ScriptManager.h" />
     <ClInclude Include="src\engine\memory\IMemoryAllocator.h" />
     <ClInclude Include="src\engine\pch.h" />
