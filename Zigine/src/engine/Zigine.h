@@ -40,7 +40,16 @@ namespace Math
 		return __s_Instance_##className.get();\
 	}
 
-#define DECLARE_INSTANCE(className)\
+#define DEFINE_SECURE_INSTANCE_FUNCTION(className, name)\
+	std::unique_ptr<className> __s_Instance_##className = std::make_unique<className>();\
+	inline className* name()\
+	{\
+		if (__s_Instance_##className == nullptr)\
+			__s_Instance_##className = std::make_unique<className>();\
+		return __s_Instance_##className.get();\
+	}
+
+#define SINGLETON(className)\
 	static className* getInstance()\
 	{\
 		static className s_Instance;\

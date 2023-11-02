@@ -8,7 +8,7 @@ DEFINE_INSTANCE_FUNCTION(ZombieManager, Zombies)
 
 ZombieManager::ZombieManager()
 {
-	auto configs = filesystem()->GetFiles("scripts/configs/zombies");
+	auto configs = Files()->GetFiles("scripts/configs/zombies");
 
 	Scripts()->RegisterNumber("ZOMBIE_DEFAULT", ZOMBIE_DEFAULT);
 	Scripts()->RegisterMetaTable("ZombieConfig", "ZombieConfig", ZombieConfig::CreateConfig);

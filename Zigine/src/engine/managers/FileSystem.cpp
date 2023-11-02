@@ -3,19 +3,19 @@
 #include "ScriptManager.h"
 #include "FileSystem.h"
 
-DEFINE_INSTANCE_FUNCTION(FileSystem, filesystem)
+DEFINE_SECURE_INSTANCE_FUNCTION(FileSystem, Files)
 
 int FileSystemLuaLoad(lua_State* state)
 {
 	const auto gameDirectory = [](lua_State* state) {
 		const char* path = lua_tostring(state, 1);
-		filesystem()->SetGameDirectory(path);
+		Files()->SetGameDirectory(path);
 
 		return 0;
 	};
 	const auto isDirectory = [](lua_State* state) {
 		const char* path = lua_tostring(state, 1);
-		bool isDirectoryExists = filesystem()->IsDirectory(path);
+		bool isDirectoryExists = Files()->IsDirectory(path);
 
 		lua_pushboolean(state, isDirectoryExists);
 		return 1;
@@ -23,7 +23,7 @@ int FileSystemLuaLoad(lua_State* state)
 	const auto exists = [](lua_State* state) {
 		const char* file = lua_tostring(state, 1);
 		const char* path = lua_tostring(state, 2);
-		bool isExists = filesystem()->Exists(file, path);
+		bool isExists = Files()->Exists(file, path);
 
 		lua_pushboolean(state, isExists);
 		return 1;
@@ -31,14 +31,14 @@ int FileSystemLuaLoad(lua_State* state)
 	const auto size = [](lua_State* state) {
 		const char* file = lua_tostring(state, 1);
 		const char* path = lua_tostring(state, 2);
-		int fileSize = filesystem()->GetFileSize(file, path);
+		int fileSize = Files()->GetFileSize(file, path);
 
 		lua_pushinteger(state, fileSize);
 		return 1;
 	};
 	const auto createDirectory = [](lua_State* state) {
 		const char* path = lua_tostring(state, 1);
-		filesystem()->CreateDirectory(path);
+		Files()->CreateDirectory(path);
 
 		return 0;
 	};

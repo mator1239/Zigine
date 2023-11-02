@@ -28,7 +28,7 @@ sf::Texture* TextureManager::Load(const std::string& key, const std::string& fil
 	if (Find(key))
 		return Get(key);
 
-	std::string path = filesystem()->GetGamePath() + "/" + filename;
+	std::string path = Files()->GetGamePath() + "/" + filename;
 
 	sf::Texture* texture = new sf::Texture();
 	LOG_CONDITION(texture->loadFromFile(path), "Failed to load texture: %s", path);

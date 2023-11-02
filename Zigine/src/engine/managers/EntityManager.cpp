@@ -14,7 +14,7 @@ void EntityManager::Add(Entity* entity)
 
 void EntityManager::Add(const std::string& name, EntityRegistry factory)
 {
-	m_Factories.emplace(name, factory);
+	GetFactories().emplace(name, factory);
 }
 
 void EntityManager::Remove(Entity* entity)
@@ -37,10 +37,12 @@ void EntityManager::Remove(int index)
 
 Entity* EntityManager::Create(const std::string& name)
 {
-	if (m_Factories.find(name) == m_Factories.end())
+	auto factories = GetFactories();
+
+	if (factories.find(name) == factories.end())
 		return nullptr;
 
-	EntityRegistry factory = m_Factories[name];
+	EntityRegistry factory = factories[name];
 	EntityRegistry::FactoryFunction function = factory.m_Function;
 	
 	return function();

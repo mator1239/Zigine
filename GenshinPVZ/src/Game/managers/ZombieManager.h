@@ -19,6 +19,8 @@ class ZombieManager final
 public:
 	ZombieManager();
 
+	void Update();
+
 	void AddConfiguration(ZombieId id, ZombieConfig config);
 	void LoadConfiguration(Zombie* zombie);
 

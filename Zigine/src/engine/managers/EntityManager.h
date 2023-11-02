@@ -22,10 +22,15 @@ public:
 
 	Entity* Create(const std::string& name);
 	void* Create(const size_t size);
+
+	// I don't know why this stupid unordered_map won't initalize
+	std::unordered_map<std::string, EntityRegistry>& GetFactories()
+	{
+		static std::unordered_map<std::string, EntityRegistry> factories;
+		return factories;
+	}
 private:
 	void FreeEntity(std::vector<Entity*>::iterator it);
-
-	std::unordered_map<std::string, EntityRegistry> m_Factories;
 	std::vector<Entity*> m_Entities;
 };
 

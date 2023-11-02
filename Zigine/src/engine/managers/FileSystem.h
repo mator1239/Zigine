@@ -20,6 +20,6 @@ private:
 	std::string m_GamePath;
 };
 
-DECLARE_INSTANCE_FUNCTION(FileSystem, filesystem)
+DECLARE_INSTANCE_FUNCTION(FileSystem, Files)
 
 #endif // !_FILESYSTEM_H
