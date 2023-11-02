@@ -10,7 +10,7 @@
 Zombie::Zombie(const vector2& position)
 {
 	SetPositon(position);
-	Zombies()->LoadConfiguration(this); //game нет в atlas путях
+	Zombies()->LoadConfiguration(this);
 	PlayAnimation("idle");
 
 	b2BodyDef definition;
@@ -26,7 +26,6 @@ Zombie::Zombie(const vector2& position)
 	fixture.filter.categoryBits = ZOMBIE_TYPE;
 	fixture.filter.maskBits = MASK_ZOMBIE;
 
-	//ContactCallback callback { this, ZOMBIE_TYPE };
 	fixture.userData.pointer = reinterpret_cast<uintptr_t>(this);
 
 	m_Body->CreateFixture(&fixture);

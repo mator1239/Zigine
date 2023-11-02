@@ -4,8 +4,8 @@
 
 #include "CardPanel.h"
 
-CardPanel::CardPanel(const std::string& name, int cost)
-	: m_Name(name)
+CardPanel::CardPanel(const std::string& classname, int cost)
+	: m_ClassName(classname)
 {
 	LoadTexture("UISeeds", "materials/ui/seeds.png");
 	m_Font.loadFromFile("game/materials/fonts/arial_bold.ttf");

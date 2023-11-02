@@ -21,8 +21,10 @@ constexpr vector2 ToSFMLVector2(const _T other)
 PhysicsManager::PhysicsManager()
 {
 	m_World = new b2World(b2Vec2_zero);
+#ifdef _DEBUG
 	m_Draw.SetFlags(b2Draw::e_aabbBit);
 	m_World->SetDebugDraw(&m_Draw);
+#endif // _DEBUG
 }
 
 PhysicsManager::~PhysicsManager()
@@ -32,7 +34,9 @@ PhysicsManager::~PhysicsManager()
 
 void PhysicsManager::Draw()
 {
+#ifdef _DEBUG
 	m_World->DebugDraw();
+#endif // _DEBUG
 }
 
 void PhysicsManager::UpdateCollision()

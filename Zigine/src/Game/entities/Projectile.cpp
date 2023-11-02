@@ -23,7 +23,7 @@ Projectile::Projectile(const vector2& position, const vector2& direction, const 
 	m_Body = Physics()->Add(&definition);
 
 	b2PolygonShape boxShape;
-	boxShape.SetAsBox(size.x, size.y);
+	boxShape.SetAsBox(size.x / 2, size.y / 2);
 
 	b2FixtureDef fixture;
 	fixture.shape = &boxShape;

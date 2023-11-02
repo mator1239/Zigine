@@ -138,7 +138,7 @@ void GameState::OnUpdate()
 		m_IsPlantReady = false;
 		m_IsPlantSelected = false;
 
-		std::string className = m_CardPanel->GetName();
+		std::string className = m_CardPanel->GetClassName();
 		Plant* plant = Plant::Create(className);
 		plant->SetTilePanelSettings(m_TilePlant);
 

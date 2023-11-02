@@ -11,7 +11,7 @@
 class CardPanel : public Button
 {
 public:
-	CardPanel(const std::string& name, int cost = 100);
+	CardPanel(const std::string& classname, int cost = 100);
 
 	void Draw();
 
@@ -23,13 +23,13 @@ public:
 
 	void SetCost(int cost);
 
-	inline const std::string& GetName() const { return m_Name; }
+	inline const std::string& GetClassName() const { return m_ClassName; }
 	inline const sf::Texture* GetSeedTexture() const { return m_SeedTexture; }
 protected:
 	void OnMousePressed();
 	void OnMouseHovered();
 private:
-	std::string m_Name;
+	std::string m_ClassName;
 	sf::Texture* m_SeedTexture;
 	sf::RectangleShape m_Seed;
 	int m_Cost;

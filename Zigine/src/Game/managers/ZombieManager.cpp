@@ -96,8 +96,7 @@ void ZombieManager::Add(Zombie* zombie)
 
 void ZombieManager::Remove(Zombie* zombie)
 {
-	if (zombie == nullptr)
-		return;
+	LOG_RETURN(zombie == nullptr, "zombie was nullptr");
 
 	auto it = std::find_if(m_Zombies.begin(), m_Zombies.end(), [&](Zombie* element) {
 		return zombie->GetIndex() == element->GetIndex();
