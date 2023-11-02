@@ -1,24 +1,24 @@
 #include "Input.h"
 
-Input* Input::_instance = nullptr;
+Input* Input::m_Instance = nullptr;
 
-void Input::init()
+void Input::Init()
 {
-	if (_instance)
-		delete _instance;
+	if (m_Instance)
+		delete m_Instance;
 
-	_instance = new Input;
+	m_Instance = new Input;
 }
 
-void Input::release()
+void Input::Release()
 {
-	delete _instance;
-	_instance = nullptr;
+	delete m_Instance;
+	m_Instance = nullptr;
 }
 
-void Input::update(sf::Event& event)
+void Input::Update(sf::Event& event)
 {
-	_instance->_prevMouseStates = _instance->_mouseStates;
+	m_Instance->m_PrevMouseStates = m_Instance->m_MouseStates;
 
 	switch (event.type)
 	{
@@ -26,14 +26,14 @@ void Input::update(sf::Event& event)
 		switch (event.mouseButton.button)
 		{
 		case sf::Mouse::Left:
-			_instance->_mouseStates[sf::Mouse::Left] = true;
+			m_Instance->m_MouseStates[sf::Mouse::Left] = true;
 			break;
 		case sf::Mouse::Right:
-			_instance->_mouseStates[sf::Mouse::Right] = true;
+			m_Instance->m_MouseStates[sf::Mouse::Right] = true;
 
 			break;
 		case sf::Mouse::Middle:
-			_instance->_mouseStates[sf::Mouse::Middle] = true;
+			m_Instance->m_MouseStates[sf::Mouse::Middle] = true;
 			break;
 		}
 		break;
@@ -41,13 +41,13 @@ void Input::update(sf::Event& event)
 		switch (event.mouseButton.button)
 		{
 		case sf::Mouse::Left:
-			_instance->_mouseStates[sf::Mouse::Left] = false;
+			m_Instance->m_MouseStates[sf::Mouse::Left] = false;
 			break;
 		case sf::Mouse::Right:
-			_instance->_mouseStates[sf::Mouse::Right] = false;
+			m_Instance->m_MouseStates[sf::Mouse::Right] = false;
 			break;
 		case sf::Mouse::Middle:
-			_instance->_mouseStates[sf::Mouse::Middle] = false;
+			m_Instance->m_MouseStates[sf::Mouse::Middle] = false;
 			break;
 		}
 		break;

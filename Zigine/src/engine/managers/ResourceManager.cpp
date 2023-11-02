@@ -1,6 +1,6 @@
 #include "ResourceManager.h"
 
-DEFINE_INSTANCE_FUNCTION(ResourceManager, Resources)
+DEFINE_SECURE_INSTANCE_FUNCTION(ResourceManager, Resources)
 
 bool ResourceManager::LoadModel(const std::string& key, const std::string& path)
 {

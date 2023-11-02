@@ -13,7 +13,7 @@ Entity::Entity(const vector2& size)
 
 void Entity::Draw()
 {
-	Renderer::drawPrimitive(m_Shape);
+	Renderer::DrawPrimitive(m_Shape);
 }
 
 Entity* Entity::Create(const std::string& name)

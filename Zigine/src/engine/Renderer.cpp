@@ -1,61 +1,61 @@
 #include "Renderer.h"
 
-std::shared_ptr<sf::RenderWindow> Renderer::_window = nullptr;
-sf::Color Renderer::_background = {};
+std::shared_ptr<sf::RenderWindow> Renderer::m_Window = nullptr;
+sf::Color Renderer::m_Background = {};
 
 Renderer::Renderer()
 {
 }
 
-void Renderer::init(int screenWidth, int screenHeight, const std::string &title,
+void Renderer::Init(int screenWidth, int screenHeight, const std::string &title,
 	bool verticalSync, sf::Color background, sf::Uint32 style)
 {
-	_window = std::make_shared<sf::RenderWindow>();
+	m_Window = std::make_shared<sf::RenderWindow>();
 
-	_background = background;
+	m_Background = background;
 
 	sf::ContextSettings settings;
 	settings.depthBits = 12;
 	settings.antialiasingLevel = 1;
 
-	_window->create(sf::VideoMode(screenWidth, screenHeight), title, style, settings);
-	_window->setKeyRepeatEnabled(false);
-	_window->setVerticalSyncEnabled(verticalSync);
-	_window->setFramerateLimit(144);
+	m_Window->create(sf::VideoMode(screenWidth, screenHeight), title, style, settings);
+	m_Window->setKeyRepeatEnabled(false);
+	m_Window->setVerticalSyncEnabled(verticalSync);
+	m_Window->setFramerateLimit(144);
 }
 
-void Renderer::drawSprite(sf::Sprite &sprite)
+void Renderer::DrawSprite(sf::Sprite &sprite)
 {
-	_window->draw(sprite);
+	m_Window->draw(sprite);
 }
 
-void Renderer::drawPrimitive(const sf::Drawable& drawable)
+void Renderer::DrawPrimitive(const sf::Drawable& drawable)
 {
-	_window->draw(drawable);
+	m_Window->draw(drawable);
 }
 
-void Renderer::drawPrimitive(const sf::Drawable* drawable)
+void Renderer::DrawPrimitive(const sf::Drawable* drawable)
 {
-	_window->draw(*drawable);
+	m_Window->draw(*drawable);
 }
 
-void Renderer::setView(const sf::View& view)
+void Renderer::SetView(const sf::View& view)
 {
-	_window->setView(view);
+	m_Window->setView(view);
 }
 
-vector2 Renderer::mapPixelToCoords(const vector2i& position)
+vector2 Renderer::MapPixelToCoords(const vector2i& position)
 {
-	const vector2 worldPosition = _window->mapPixelToCoords(position);
+	const vector2 worldPosition = m_Window->mapPixelToCoords(position);
 	return worldPosition;
 }
 
-void Renderer::clear()
+void Renderer::Clear()
 {
-	_window->clear(_background);
+	m_Window->clear(m_Background);
 }
 
-void Renderer::display()
+void Renderer::Display()
 {
-	_window->display();
+	m_Window->display();
 }

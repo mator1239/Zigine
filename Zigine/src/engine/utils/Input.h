@@ -7,35 +7,35 @@
 class Input
 {
 public:
-	static void init();
-	static void release();
+	static void Init();
+	static void Release();
 
-	static void update(sf::Event& event);
+	static void Update(sf::Event& event);
 
-	static bool isMouseButtonDown(sf::Mouse::Button button)
+	static bool IsMouseButtonDown(sf::Mouse::Button button)
 	{
-		return (_instance->_mouseStates[button] &&
-			_instance->_mouseStates[button] != _instance->_prevMouseStates[button]);
+		return (m_Instance->m_MouseStates[button] &&
+			m_Instance->m_MouseStates[button] != m_Instance->m_PrevMouseStates[button]);
 	}
 
 	static bool isMouseButtonUp(sf::Mouse::Button button)
 	{
-		return (!_instance->_mouseStates[button] &&
-			_instance->_mouseStates[button] == _instance->_prevMouseStates[button]);
+		return (!m_Instance->m_MouseStates[button] &&
+			m_Instance->m_MouseStates[button] == m_Instance->m_PrevMouseStates[button]);
 	}
 
-	static vector2i getPosition() 
+	static vector2i GetPosition() 
 	{ 
-		vector2i mousePosition = sf::Mouse::getPosition(*Renderer::getWindow());
-		vector2 worldPosition = Renderer::mapPixelToCoords(mousePosition);
+		vector2i mousePosition = sf::Mouse::getPosition(*Renderer::GetWindow());
+		vector2 worldPosition = Renderer::MapPixelToCoords(mousePosition);
 		return { static_cast<int>(worldPosition.x), 
 			static_cast<int>(worldPosition.y) };
 	}
 private:
-	static Input* _instance;
+	static Input* m_Instance;
 
-	std::unordered_map<sf::Mouse::Button, bool> _mouseStates;
-	std::unordered_map<sf::Mouse::Button, bool> _prevMouseStates;
+	std::unordered_map<sf::Mouse::Button, bool> m_MouseStates;
+	std::unordered_map<sf::Mouse::Button, bool> m_PrevMouseStates;
 };
 
 #endif // !_INPUT_H

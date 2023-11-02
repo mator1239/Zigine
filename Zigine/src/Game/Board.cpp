@@ -55,8 +55,8 @@ void Board::Draw()
 		textId.setPosition(center.getPosition());
 		textId.setFont(m_Font);
 
-		Renderer::drawPrimitive(center);
-		Renderer::drawPrimitive(textId);
+		Renderer::DrawPrimitive(center);
+		Renderer::DrawPrimitive(textId);
 	}
 }
 

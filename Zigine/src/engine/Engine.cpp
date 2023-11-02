@@ -9,30 +9,30 @@
 #include <chrono>
 #include <Windows.h>
 
-class FPS
+class FPS final
 {
 public:
 	FPS() 
-		: _frame(0)
-		, _fps(0) 
+		: m_Frame(0)
+		, m_Fps(0)
 	{}
 
-	const unsigned int getFPS() const { return _fps; }
-private:
-	unsigned int _frame;
-	unsigned int _fps;
-	sf::Clock _clock;
-public:
-	void update()
+	void Update()
 	{
-		if (_clock.getElapsedTime().asSeconds() >= 1.0f)
+		if (m_Clock.getElapsedTime().asSeconds() >= 1.0f)
 		{
-			_fps = _frame;
-			_frame = 0;
-			_clock.restart();
+			m_Fps = m_Frame;
+			m_Frame = 0;
+			m_Clock.restart();
 		}
-		++_frame;
+		m_Frame++;
 	}
+
+	const unsigned int GetFps() const { return m_Fps; }
+private:
+	unsigned int m_Frame;
+	unsigned int m_Fps;
+	sf::Clock m_Clock;
 };
 
 Engine* Engine::m_Instance = nullptr;
@@ -40,7 +40,7 @@ Engine* Engine::m_Instance = nullptr;
 Engine::Engine(int width, int height, const std::string& title, bool verticalSync,
 	sf::Color background, sf::Uint32 style)
 {
-	Renderer::init(width, height, title, verticalSync, background, style);
+	Renderer::Init(width, height, title, verticalSync, background, style);
 	m_Instance = this;
 
 	Panel* basePanel = new Panel();
@@ -82,13 +82,13 @@ void Engine::PushOverlay(Layer* layer)
 
 void Engine::Create()
 {
-	sf::RenderWindow* renderWindow = Renderer::getWindow().get();
+	sf::RenderWindow* renderWindow = Renderer::GetWindow().get();
 
 	Init();
 
 	FPS fps;
 
-	while (Renderer::isOpen())
+	while (Renderer::IsOpen())
 	{
 		Time::update();
 
@@ -118,7 +118,7 @@ void Engine::Create()
 		Panels()->Update();
 		Animation::Update();
 
-		Renderer::clear();
+		Renderer::Clear();
 		Entities()->Draw();
 		Panels()->Draw();
 		Physics()->Draw();
@@ -130,11 +130,11 @@ void Engine::Create()
 		}
 		m_ImguiLayer->End();
 
-		Renderer::display();
+		Renderer::Display();
 
-		fps.update();
+		fps.Update();
 		std::ostringstream ss;
-		ss << fps.getFPS() << " " << Time::getCurrentTime();
+		ss << fps.GetFps() << " " << Time::getCurrentTime();
 
 		renderWindow->setTitle(ss.str());
 

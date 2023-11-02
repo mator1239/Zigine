@@ -78,7 +78,7 @@ void PhysicsManager::PhysicsDraw::DrawPolygon(const b2Vec2* vertices, int32 vert
 	sf::Color shapeColor(color.r * 255, color.g * 255, color.b * 255, color.a * 255);
 	convexShape.setOutlineColor(shapeColor);
 
-	Renderer::drawPrimitive(convexShape);
+	Renderer::DrawPrimitive(convexShape);
 }
 
 void PhysicsManager::PhysicsDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
@@ -90,7 +90,7 @@ void PhysicsManager::PhysicsDraw::DrawSolidPolygon(const b2Vec2* vertices, int32
 	sf::Color shapeColor(color.r * 255, color.g * 255, color.b * 255, color.a * 255);
 	convexShape.setFillColor(shapeColor);
 
-	Renderer::drawPrimitive(convexShape);
+	Renderer::DrawPrimitive(convexShape);
 }
 
 void PhysicsManager::PhysicsDraw::DrawCircle(const b2Vec2& center, float radius, const b2Color& color)
@@ -104,7 +104,7 @@ void PhysicsManager::PhysicsDraw::DrawCircle(const b2Vec2& center, float radius,
 	sf::Color shapeColor(color.r * 255, color.g * 255, color.b * 255, color.a * 255);
 	shape.setOutlineColor(shapeColor);
 
-	Renderer::drawPrimitive(shape);
+	Renderer::DrawPrimitive(shape);
 }
 
 void PhysicsManager::PhysicsDraw::DrawSolidCircle(const b2Vec2& center, float radius, const b2Vec2& axis, const b2Color& color)
@@ -116,7 +116,7 @@ void PhysicsManager::PhysicsDraw::DrawSolidCircle(const b2Vec2& center, float ra
 	sf::Color shapeColor(color.r * 255, color.g * 255, color.b * 255, color.a * 80);
 	shape.setFillColor(shapeColor);
 
-	Renderer::drawPrimitive(shape);
+	Renderer::DrawPrimitive(shape);
 
 	b2Vec2 point = center + (radius * axis);
 	DrawSegment(center, point, color);
@@ -133,7 +133,7 @@ void PhysicsManager::PhysicsDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2
 	vertexArray[1].position = ToSFMLVector2(p2);
 	vertexArray[1].color = shapeColor;
 
-	Renderer::drawPrimitive(vertexArray);
+	Renderer::DrawPrimitive(vertexArray);
 }
 
 void PhysicsManager::PhysicsDraw::DrawTransform(const b2Transform& xf)
@@ -155,5 +155,5 @@ void PhysicsManager::PhysicsDraw::DrawPoint(const b2Vec2& p, float size, const b
 	sf::Color shapeColor(color.r * 255, color.g * 255, color.b * 255, color.a * 255);
 	shape.setFillColor(shapeColor);
 
-	Renderer::drawPrimitive(shape);
+	Renderer::DrawPrimitive(shape);
 }

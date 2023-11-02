@@ -28,9 +28,9 @@ CardPanel::CardPanel(const std::string& classname, int cost)
 
 void CardPanel::Draw()
 {
-	Renderer::drawPrimitive(m_Shape);
-	Renderer::drawPrimitive(m_Seed);
-	Renderer::drawPrimitive(m_Text);
+	Renderer::DrawPrimitive(m_Shape);
+	Renderer::DrawPrimitive(m_Seed);
+	Renderer::DrawPrimitive(m_Text);
 
 #if _DEBUG
 	const vector2 position = GetPosition();
@@ -45,8 +45,8 @@ void CardPanel::Draw()
 	maxShape.setFillColor(sf::Color(0, 0, 255));
 	maxShape.setPosition(max);
 
-	Renderer::drawPrimitive(minShape);
-	Renderer::drawPrimitive(maxShape);
+	Renderer::DrawPrimitive(minShape);
+	Renderer::DrawPrimitive(maxShape);
 #endif // _DEBUG
 }
 
