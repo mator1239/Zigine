@@ -108,5 +108,13 @@ namespace CoreLog
 #define interface_class class
 #define abstract_class class
 
+#ifndef ZIGINE_BUILD
+	#ifdef ZIGINE_BUILD_DLL
+		#define ZIGINE_API __declspec(dllexport)
+	#else
+		#define ZIGINE_API __declspec(dllimport)
+	#endif
+#endif // !ZIGINE_BUILD
+
 #include "utils/Timer.h"
 #include "utils/Math.h"
