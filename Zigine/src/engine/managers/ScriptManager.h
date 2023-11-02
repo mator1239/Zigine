@@ -44,16 +44,11 @@ private:
 	void LoadStandardLibrary();
 	void LoadLuaFile(const std::string& name);
 
-#define SCRIPT_FUNCTION(name, type, ...)\
-		type<__VA_ARGS__>* name##() {\
-			static type<__VA_ARGS__> instance_##name;\
-			return &instance_##name; }\
-
-	SCRIPT_FUNCTION(GetLibraries, std::unordered_map, std::string, LuaLibrary)
-	SCRIPT_FUNCTION(GetFunctions, std::unordered_map, const char*, LuaCFuntion)
-	SCRIPT_FUNCTION(GetNumbers, std::unordered_map, int, std::string)
-	SCRIPT_FUNCTION(GetFiles, std::vector, std::string)
-	SCRIPT_FUNCTION(GetMetaTables, std::unordered_map, std::string, LuaMetaTable)
+	std::unordered_map<std::string, LuaLibrary> m_Libraries;
+	std::unordered_map<std::string, LuaCFuntion> m_Functions;
+	std::unordered_map<int, std::string> m_Numbers;
+	std::unordered_map<std::string, LuaMetaTable> m_MetaTables;
+	std::vector<std::string> m_Files;
 private:
 	std::string m_GamePath;
 	lua_State* m_State;

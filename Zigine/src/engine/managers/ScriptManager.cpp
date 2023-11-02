@@ -1,7 +1,7 @@
 #include "ScriptManager.h"
 #include "TextureManager.h"
 
-DEFINE_INSTANCE_FUNCTION(ScriptManager, Scripts)
+DEFINE_SECURE_INSTANCE_FUNCTION(ScriptManager, Scripts)
 
 bool checkLua(lua_State* state, int r)
 {
@@ -24,10 +24,10 @@ void ScriptManager::Init(const std::string& path)
 	LoadStandardLibrary();
 
 	// Clear temporary memory
-	GetLibraries()->clear();
-	GetFunctions()->clear();
-	GetFiles()->clear();
-	GetNumbers()->clear();
+	m_Libraries.clear();
+	m_Functions.clear();
+	m_Files.clear();
+	m_Numbers.clear();
 }
 
 void ScriptManager::Load(const std::string& name, std::function<void(lua_State* state)> function)
@@ -59,28 +59,24 @@ void ScriptManager::PushNumber(const std::string& name, const int number)
 
 void ScriptManager::RegisterLibrary(const std::string& name, const LuaCFuntion openfunction)
 {
-	auto libraries = GetLibraries();
 	LuaLibrary library { openfunction };
-	libraries->emplace(name, library);
+	m_Libraries.emplace(name, library);
 }
 
 void ScriptManager::RegisterFile(const std::string& file)
 {
-	auto files = GetFiles();
-	files->push_back(file);
+	m_Files.push_back(file);
 }
 
 void ScriptManager::RegisterNumber(const std::string& name, const int number)
 {
-	auto numbers = GetNumbers();
-	numbers->emplace(number, name);
+	m_Numbers.emplace(number, name);
 }
 
 void ScriptManager::RegisterFunctions(const luaL_Reg* functions)
 {
-	auto globalFunctions = GetFunctions();
 	for (const luaL_Reg* function = functions; function->func; ++function)
-		globalFunctions->emplace(function->name, function->func);
+		m_Functions.emplace(function->name, function->func);
 }
 
 int ScriptManager::RegisterLibraryFunctions(const luaL_Reg* functions)
@@ -92,14 +88,13 @@ int ScriptManager::RegisterLibraryFunctions(const luaL_Reg* functions)
 void ScriptManager::RegisterMetaTable(const std::string& name, const std::string& functionName,
 	const LuaCFuntion initFunction)
 {
-	auto metaTables = GetMetaTables();
 	LuaMetaTable metaTable { functionName, initFunction };
-	metaTables->emplace(name, metaTable);
+	m_MetaTables.emplace(name, metaTable);
 }
 
 void ScriptManager::LoadStandardLibrary()
 {
-	for (auto& [name, library] : *GetLibraries())
+	for (auto& [name, library] : m_Libraries)
 	{
 		luaL_requiref(m_State, name.c_str(), library.m_OpenFunction, 1);
 		lua_pop(m_State, 1);
@@ -141,16 +136,16 @@ void ScriptManager::LoadStandardLibrary()
 
 	RegisterFunctions(enginebaselib);
 
-	for (auto& [name, function] : *GetFunctions())
-		lua_register(m_State, name, function);
+	for (auto& [name, function] : m_Functions)
+		lua_register(m_State, name.c_str(), function);
 
-	for (auto& [number, name] : *GetNumbers())
+	for (auto& [number, name] : m_Numbers)
 		PushNumber(name, number);
 
-	for (auto& [metaName, metaTable] : *GetMetaTables())
+	for (auto& [metaName, metaTable] : m_MetaTables)
 		PushMetaTable(metaName, metaTable.m_FunctionName, metaTable.m_InitFunction);
 
-	for (auto file : *GetFiles())
+	for (auto file : m_Files)
 		LoadLuaFile(file);
 }
 

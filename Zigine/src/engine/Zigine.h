@@ -41,7 +41,7 @@ namespace Math
 	}
 
 #define DEFINE_SECURE_INSTANCE_FUNCTION(className, name)\
-	std::unique_ptr<className> __s_Instance_##className = std::make_unique<className>();\
+	std::unique_ptr<className> __s_Instance_##className = nullptr;\
 	inline className* name()\
 	{\
 		if (__s_Instance_##className == nullptr)\

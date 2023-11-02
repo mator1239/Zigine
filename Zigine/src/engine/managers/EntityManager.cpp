@@ -1,7 +1,7 @@
 #include "EntityManager.h"
 #include "engine/physics/PhysicsManager.h"
 
-DEFINE_INSTANCE_FUNCTION(EntityManager, Entities)
+DEFINE_SECURE_INSTANCE_FUNCTION(EntityManager, Entities)
 
 EntityManager::EntityManager()
 {
@@ -14,7 +14,7 @@ void EntityManager::Add(Entity* entity)
 
 void EntityManager::Add(const std::string& name, EntityRegistry factory)
 {
-	GetFactories().emplace(name, factory);
+	m_Factories.emplace(name, factory);
 }
 
 void EntityManager::Remove(Entity* entity)
@@ -37,12 +37,10 @@ void EntityManager::Remove(int index)
 
 Entity* EntityManager::Create(const std::string& name)
 {
-	auto factories = GetFactories();
-
-	if (factories.find(name) == factories.end())
+	if (m_Factories.find(name) == m_Factories.end())
 		return nullptr;
 
-	EntityRegistry factory = factories[name];
+	EntityRegistry factory = m_Factories[name];
 	EntityRegistry::FactoryFunction function = factory.m_Function;
 	
 	return function();
