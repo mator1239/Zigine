@@ -6,7 +6,7 @@
 ImguiLayer::ImguiLayer()
 	: Layer("ImguiLayer")
 {
-	m_Window = Renderer::getWindow().get();
+	m_Window = Renderer::GetWindow().get();
 }
 
 void ImguiLayer::OnAttach()
@@ -25,7 +25,7 @@ void ImguiLayer::OnDetach()
 
 void ImguiLayer::Begin()
 {
-	ImGui::SFML::Update(*m_Window, Time::getClock());
+	ImGui::SFML::Update(*m_Window, Time::GetClock());
 }
 
 void ImguiLayer::End()

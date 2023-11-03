@@ -6,7 +6,7 @@ void AnimationEntity::Draw()
 {
 	m_Armature->setPosition(GetPosition());
 
-	Renderer::drawPrimitive(m_Armature);
+	Renderer::DrawPrimitive(m_Armature);
 }
 
 void AnimationEntity::LoadAnimationTexture(const std::string& key, const std::string& skeleton, const std::string& atlas)

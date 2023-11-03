@@ -47,8 +47,8 @@ Engine::Engine(int width, int height, const std::string& title, bool verticalSyn
 	basePanel->SetSize(width, height);
 	basePanel->SetVisible(false);
 
-	Time::init();
-	Input::init();
+	Time::Init();
+	Input::Init();
 
 	Entities()->Init();
 	Scripts()->Init("game/scripts/");
@@ -64,8 +64,8 @@ Engine::~Engine()
 	Entities()->Release();
 	Panels()->Release();
 
-	Time::release();
-	Input::release();
+	Time::Release();
+	Input::Release();
 }
 
 void Engine::PushLayer(Layer* layer)
@@ -90,7 +90,7 @@ void Engine::Create()
 
 	while (Renderer::IsOpen())
 	{
-		Time::update();
+		Time::Update();
 
 		sf::Event event;
 		while (renderWindow->pollEvent(event))
@@ -107,7 +107,7 @@ void Engine::Create()
 
 			ImGui::SFML::ProcessEvent(*renderWindow, event);
 		}
-		Input::update(event);
+		Input::Update(event);
 
 		Physics()->UpdateCollision();
 
@@ -134,7 +134,7 @@ void Engine::Create()
 
 		fps.Update();
 		std::ostringstream ss;
-		ss << fps.GetFps() << " " << Time::getCurrentTime();
+		ss << fps.GetFps() << " " << Time::GetTime();
 
 		renderWindow->setTitle(ss.str());
 

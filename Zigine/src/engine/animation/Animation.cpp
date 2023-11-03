@@ -6,7 +6,7 @@ dragonBones::SFMLFactory Animation::m_Factory = {};
 
 void Animation::Update()
 {
-	float deltaTime = Time::getDeltaTime();
+	float deltaTime = Time::GetDeltaTime();
 	m_Factory.update(deltaTime);
 }
 

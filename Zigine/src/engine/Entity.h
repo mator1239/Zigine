@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _ENTITY_H
+#define _ENTITY_H
 #include "Zigine.h"
 #include "Renderer.h"
 #include "physics/PhysicsManager.h"
@@ -87,3 +88,5 @@ public:
 		return new dllClassName();\
 	}\
 	static EntityRegistry __g_##className##EntityRegistry(#className, __Create##className);
+
+#endif // !_ENTITY_H

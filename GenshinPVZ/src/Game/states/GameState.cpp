@@ -110,7 +110,7 @@ void GameState::OnAttach()
 
 void GameState::HandleInput()
 {
-	if (Input::isMouseButtonDown(sf::Mouse::Left))
+	if (Input::IsMouseButtonDown(sf::Mouse::Left))
 	{
 		if (m_IsPlantSelected)
 		{
@@ -154,7 +154,7 @@ void GameState::OnUpdate()
 
 	if (m_IsPlantSelected)
 	{
-		vector2 position { Input::getPosition() };
+		vector2 position { Input::GetPosition() };
 
 		if (m_Map->GetTile(position, m_CurrentTile) && !m_CurrentTile.GetPlant())
 		{

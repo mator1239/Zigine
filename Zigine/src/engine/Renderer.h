@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _RENDERER_H
+#define _RENDERER_H
 #include "Zigine.h"
 
 class Renderer
@@ -28,3 +29,5 @@ private:
 	static sf::Color m_Background;
 	static std::shared_ptr<sf::RenderWindow> m_Window;
 };
+
+#endif // !_RENDERER_H

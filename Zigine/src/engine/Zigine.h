@@ -1,14 +1,16 @@
-#pragma once
+#ifndef _ZIGINE_H
+#define _ZIGINE_H
 
 #include <iostream>
 #include <string>
+#include <unordered_map>
 #include <vector>
 #include <array>
-#include <map>
 #include <list>
-#include <unordered_map>
+
 #include <memory>
 #include <stack>
+
 #include <functional>
 
 #include <SFML/Graphics.hpp>
@@ -127,3 +129,5 @@ namespace CoreLog
 
 #include "utils/Timer.h"
 #include "utils/Math.h"
+
+#endif // !_ZIGINE_H

@@ -16,7 +16,7 @@ void Panel::Draw()
 	if (!m_IsVisible)
 		return;
 
-	Renderer::drawPrimitive(m_Shape);
+	Renderer::DrawPrimitive(m_Shape);
 }
 
 void Panel::SetPosition(float x, float y)

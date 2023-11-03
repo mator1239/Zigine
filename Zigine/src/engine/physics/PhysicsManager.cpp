@@ -41,7 +41,7 @@ void PhysicsManager::Draw()
 
 void PhysicsManager::UpdateCollision()
 {
-	float deltaTime = Time::getDeltaTime();
+	float deltaTime = Time::GetDeltaTime();
 	m_World->Step(deltaTime, 0, 4);
 }
 

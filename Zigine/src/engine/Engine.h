@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _ENGINE_H
+#define _ENGINE_H
 #include "Renderer.h"
 #include "managers/EntityManager.h"
 
@@ -31,3 +32,5 @@ protected:
 private:
 	static Engine* m_Instance;
 };
+
+#endif // !_ENGINE_H

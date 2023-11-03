@@ -1,41 +1,41 @@
 #include "Time.h"
 
-Time* Time::_instance = nullptr;
+Time* Time::m_Instance = nullptr;
 
-void Time::init()
+void Time::Init()
 {
-	if (_instance)
-		delete _instance;
+	if (m_Instance)
+		delete m_Instance;
 
-	_instance = new Time();
+	m_Instance = new Time();
 
-	_instance->_deltaTime = 0.0f;
-	_instance->_time = 0.0f;
+	m_Instance->m_DeltaTime = 0.0f;
+	m_Instance->m_Time = 0.0f;
 }
 
-void Time::release()
+void Time::Release()
 {
-	delete _instance;
+	delete m_Instance;
 }
 
-float Time::getDeltaTime()
+float Time::GetDeltaTime()
 {
-	return _instance->_deltaTime;
+	return m_Instance->m_DeltaTime;
 }
 
-float Time::getCurrentTime()
+float Time::GetTime()
 {
-	return _instance->_time;
+	return m_Instance->m_Time;
 }
 
-sf::Time Time::getClock()
+sf::Time Time::GetClock()
 {
-	return _instance->_clock.getElapsedTime();
+	return m_Instance->m_Clock.getElapsedTime();
 }
 
-void Time::update()
+void Time::Update()
 {
-	sf::Time time = _instance->_clock.restart();
-	_instance->_time += time.asSeconds();
-	_instance->_deltaTime = time.asSeconds();
+	sf::Time time = m_Instance->m_Clock.restart();
+	m_Instance->m_Time += time.asSeconds();
+	m_Instance->m_DeltaTime = time.asSeconds();
 }

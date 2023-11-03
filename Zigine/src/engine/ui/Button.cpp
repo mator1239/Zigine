@@ -3,14 +3,14 @@
 
 void Button::Update()
 {
-	vector2i position { Input::getPosition() };
+	vector2i position { Input::GetPosition() };
 
 	if (position.x >= m_Min.x && position.x <= m_Max.x
 		&& position.y >= m_Min.y && position.y <= m_Max.y)
 	{
 		OnMouseHovered();
 
-		if (Input::isMouseButtonDown(sf::Mouse::Left))
+		if (Input::IsMouseButtonDown(sf::Mouse::Left))
 		{
 			OnMousePressed();
 

@@ -4,17 +4,17 @@
 class Time
 {
 public:
-	static void init();
-	static void release();
-	static void update();
+	static void Init();
+	static void Release();
+	static void Update();
 
-	static float getDeltaTime();
-	static float getCurrentTime();
-	static sf::Time getClock();
+	static float GetDeltaTime();
+	static float GetTime();
+	static sf::Time GetClock();
 private:
-	static Time* _instance;
+	static Time* m_Instance;
 
-	float _deltaTime;
-	float _time;
-	sf::Clock _clock;
+	float m_DeltaTime;
+	float m_Time;
+	sf::Clock m_Clock;
 };

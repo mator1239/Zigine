@@ -7,7 +7,7 @@ Label::Label(const std::string& name, Panel* parent)
 
 void Label::Draw()
 {
-	Renderer::drawPrimitive(m_Text);
+	Renderer::DrawPrimitive(m_Text);
 }
 
 void Label::SetTextPosition(const vector2& position)
