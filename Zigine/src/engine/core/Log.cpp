@@ -27,7 +27,7 @@ void Log::SetConsoleTextColor(LogType type)
 	SetConsoleTextAttribute(hConsole, byteColor);
 }
 
-void Log::Msg(LogType type, const std::string& functionName, const std::string& format, ...)
+void Log::Msg(LogType type, const std::string& format, ...)
 {
 	SetConsoleTextColor(type);
 
@@ -35,7 +35,6 @@ void Log::Msg(LogType type, const std::string& functionName, const std::string& 
 
 	va_list args;
 	va_start(args, charFormat);
-	printf("[%s]: ", functionName.c_str());
 	vprintf(charFormat, args);
 	va_end(args);
 

@@ -14,13 +14,14 @@ public:
 	CardPanel(const std::string& classname, int cost = 100);
 
 	void Draw();
+	void Update();
+
+	void Recharge();
 
 	void SetPosition(const vector2& position);
 	void SetFillColor(const sf::Color& color);
 	void SetFillColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a = 255);
-
 	void SetColor(const sf::Color& color, ButtonColorType colorType = ButtonColorType::Default);
-
 	void SetCost(int cost);
 
 	inline const std::string& GetClassName() const { return m_ClassName; }
@@ -33,6 +34,11 @@ private:
 	sf::Texture* m_SeedTexture;
 	sf::RectangleShape m_Seed;
 	int m_Cost;
+
+	int m_TimeRecharge;
+	int m_NextRecharge;
+	bool m_IsRecharged;
+	sf::RectangleShape m_RechargeShape;
 };
 
 #endif // !_CARDPANEL_H

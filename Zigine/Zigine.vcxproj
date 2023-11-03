@@ -200,20 +200,6 @@
     <ClCompile Include="src\engine\utils\Time.cpp" />
     <ClCompile Include="src\engine\utils\Timer.cpp" />
     <ClCompile Include="src\engine\Zigine.cpp" />
-    <ClCompile Include="src\Game\Board.cpp" />
-    <ClCompile Include="src\Game\entities\Plant.cpp" />
-    <ClCompile Include="src\Game\entities\Projectile.cpp" />
-    <ClCompile Include="src\Game\entities\Sunflower.cpp" />
-    <ClCompile Include="src\Game\entities\Zombie.cpp" />
-    <ClCompile Include="src\Game\managers\ProjectileManager.cpp" />
-    <ClCompile Include="src\Game\managers\ZombieManager.cpp" />
-    <ClCompile Include="src\Game\Map.cpp" />
-    <ClCompile Include="src\Game\states\GameOver.cpp" />
-    <ClCompile Include="src\Game\states\GameState.cpp" />
-    <ClCompile Include="src\Game\states\GameMenu.cpp" />
-    <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\Game\ui\CardPanel.cpp" />
-    <ClCompile Include="src\Game\ui\SeedBankPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\AnimationEntity.h" />
@@ -300,26 +286,11 @@
     <ClInclude Include="src\engine\utils\pugixml.hpp" />
     <ClInclude Include="src\engine\utils\Time.h" />
     <ClInclude Include="src\engine\utils\Timer.h" />
-    <ClInclude Include="src\Game\Const.h" />
-    <ClInclude Include="src\Game\entities\Object.h" />
-    <ClInclude Include="src\Game\entities\Plant.h" />
-    <ClInclude Include="src\Game\entities\Projectile.h" />
-    <ClInclude Include="src\Game\entities\Zombie.h" />
-    <ClInclude Include="src\Game\managers\ProjectileManager.h" />
-    <ClInclude Include="src\Game\managers\ZombieManager.h" />
-    <ClInclude Include="src\Game\Map.h" />
-    <ClInclude Include="src\Game\states\GameOver.h" />
-    <ClInclude Include="src\Game\states\GameState.h" />
     <ClInclude Include="src\engine\Engine.h" />
     <ClInclude Include="src\engine\Entity.h" />
     <ClInclude Include="src\engine\managers\EntityManager.h" />
     <ClInclude Include="src\engine\Renderer.h" />
     <ClInclude Include="src\engine\Zigine.h" />
-    <ClInclude Include="src\Game\states\GameMenu.h" />
-    <ClInclude Include="src\Game\Board.h" />
-    <ClInclude Include="src\Game\ui\Base.h" />
-    <ClInclude Include="src\Game\ui\SeedBankPanel.h" />
-    <ClInclude Include="src\Game\ui\CardPanel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

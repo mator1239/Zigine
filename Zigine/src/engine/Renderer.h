@@ -11,9 +11,9 @@ public:
 	static void Init(int screenWidth, int screenHeight, const std::string &title,
 		bool verticalSync, sf::Color background, sf::Uint32 style);
 
-	static void DrawSprite(sf::Sprite& sprite);
-	static void DrawPrimitive(const sf::Drawable& drawable);
-	static void DrawPrimitive(const sf::Drawable* drawable);
+	static void DrawSprite(sf::Sprite& sprite, const sf::RenderStates& states = sf::RenderStates::Default);
+	static void DrawPrimitive(const sf::Drawable& drawable, const sf::RenderStates& states = sf::RenderStates::Default);
+	static void DrawPrimitive(const sf::Drawable* drawable, const sf::RenderStates& states = sf::RenderStates::Default);
 
 	static void SetView(const sf::View& view);
 

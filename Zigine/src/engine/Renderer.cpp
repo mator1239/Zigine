@@ -24,19 +24,19 @@ void Renderer::Init(int screenWidth, int screenHeight, const std::string &title,
 	m_Window->setFramerateLimit(144);
 }
 
-void Renderer::DrawSprite(sf::Sprite &sprite)
+void Renderer::DrawSprite(sf::Sprite &sprite, const sf::RenderStates& states)
 {
-	m_Window->draw(sprite);
+	m_Window->draw(sprite, states);
 }
 
-void Renderer::DrawPrimitive(const sf::Drawable& drawable)
+void Renderer::DrawPrimitive(const sf::Drawable& drawable, const sf::RenderStates& states)
 {
-	m_Window->draw(drawable);
+	m_Window->draw(drawable, states);
 }
 
-void Renderer::DrawPrimitive(const sf::Drawable* drawable)
+void Renderer::DrawPrimitive(const sf::Drawable* drawable, const sf::RenderStates& states)
 {
-	m_Window->draw(*drawable);
+	m_Window->draw(*drawable, states);
 }
 
 void Renderer::SetView(const sf::View& view)

@@ -76,7 +76,7 @@ void GameState::OnAttach()
 
 	for (auto& card : m_SeedPanel->GetCards())
 	{
-		card->SetPressedColor({ 128, 128, 128, 255 });
+		card->SetPressedColor({ 48, 48, 48, 255 });
 		card->SetButtonCallback([&](Button* button, vector2i position) {
 			CardPanel* panel = static_cast<CardPanel*>(button);
 			if (m_CardPanel == panel)
@@ -121,6 +121,7 @@ void GameState::HandleInput()
 			}
 			else
 			{
+				m_CardPanel->SetColor({ 255, 255, 255, 255 });
 				ResetCardPanel();
 				ResetPlantShadow();
 			}
@@ -131,10 +132,10 @@ void GameState::HandleInput()
 void GameState::OnUpdate()
 {
 	HandleInput();
-
+	
 	if (m_IsPlantReady)
 	{
-		//m_PlantSound.play();
+		m_PlantSound.play();
 		m_IsPlantReady = false;
 		m_IsPlantSelected = false;
 
@@ -146,10 +147,12 @@ void GameState::OnUpdate()
 		Tile& tile = m_Map->GetTile(tileId);
 		tile.SetPlant(plant);
 
+		m_CardPanel->Recharge();
+
 		ResetCardPanel();
 		ResetPlantShadow();
 
-		Log::Msg(LogType::Default, __FUNCTION__, "Plant spawned");
+		Log::Msg(LogType::Default, "Plant spawned");
 	}
 
 	if (m_IsPlantSelected)
@@ -190,7 +193,7 @@ void GameState::ResetPlantShadow()
 
 void GameState::ResetCardPanel()
 {
-	m_CardPanel->SetColor({ 255, 255, 255, 255 });
+	//m_CardPanel->SetColor({ 255, 255, 255, 255 });
 	m_IsPlantSelected = false;
 	m_CardPanel = nullptr;
 }

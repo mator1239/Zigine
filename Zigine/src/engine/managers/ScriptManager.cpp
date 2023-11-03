@@ -8,7 +8,7 @@ bool checkLua(lua_State* state, int r)
 	if (r != LUA_OK)
 	{
 		std::string errormsg = lua_tostring(state, -1);
-		Log::Msg(LogType::Error, __FUNCTION__, errormsg);
+		Log::Msg(LogType::Error, errormsg);
 		return false;
 	}
 

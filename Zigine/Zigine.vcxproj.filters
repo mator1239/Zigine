@@ -27,15 +27,6 @@
     <ClCompile Include="src\engine\managers\EntityManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\states\GameOver.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\states\GameState.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\ui\Panel.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -45,16 +36,7 @@
     <ClCompile Include="src\engine\physics\PhysicsManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\states\GameMenu.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\Map.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\ui\Button.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\Board.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\utils\pugixml.cpp">
@@ -69,19 +51,7 @@
     <ClCompile Include="src\engine\ui\PanelManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\ui\SeedBankPanel.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\ui\CardPanel.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\managers\TextureManager.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\entities\Plant.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\entities\Sunflower.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\dragonBones\SFMLArmatureDisplay.cpp">
@@ -100,12 +70,6 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\animation\Animation.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\entities\Projectile.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\managers\ProjectileManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\utils\Timer.cpp">
@@ -147,12 +111,6 @@
     <ClCompile Include="src\engine\managers\FileSystem.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\entities\Zombie.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\managers\ZombieManager.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\managers\ResourceManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -176,12 +134,6 @@
     <ClInclude Include="src\engine\managers\EntityManager.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\states\GameOver.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\states\GameState.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\memory\IMemoryAllocator.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -191,16 +143,7 @@
     <ClInclude Include="src\engine\physics\PhysicsManager.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\states\GameMenu.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\Map.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\ui\Button.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\Board.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\utils\pugiconfig.hpp">
@@ -218,16 +161,7 @@
     <ClInclude Include="src\engine\ui\PanelManager.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\ui\SeedBankPanel.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\ui\CardPanel.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\managers\TextureManager.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\entities\Plant.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\dragonBones\SFMLArmatureDisplay.h">
@@ -258,12 +192,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\animation\Animation.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\entities\Projectile.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\managers\ProjectileManager.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\utils\Timer.h">
@@ -323,25 +251,10 @@
     <ClInclude Include="src\engine\ui\Base.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\ui\Base.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\utils\Base.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\managers\FileSystem.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\managers\ZombieManager.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\entities\Zombie.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\Const.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\entities\Object.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\box2d\b2_api.h">

@@ -18,8 +18,7 @@ dragonBones::SFMLArmatureDisplay* Animation::Load(sf::Texture* texture, const st
 
 	auto armature = new dragonBones::SFMLArmatureDisplay(name);
 
-	Log::Condition(armature->getArmatureProxy() == nullptr, LogType::Error, __FUNCTION__, 
-		"Failed to load animation texture. No animation data");
+	Log::Condition(armature->getArmatureProxy() == nullptr, "Failed to load animation texture. No animation data");
 
 	return armature;
 }

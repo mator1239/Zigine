@@ -33,8 +33,7 @@ Bone* AnimationEntity::GetAttachment(const std::string& name)
 {
 	Bone* bone = m_Armature->getArmature()->getBone(name);
 	
-	Log::Condition(bone == nullptr, LogType::Error, __FUNCTION__,
-		"%s%s", "Failed to find bone with name: ", name.c_str());
+	Log::Condition(bone == nullptr, "%s%s", "Failed to find bone with name: ", name.c_str());
 
 	return bone;
 }
