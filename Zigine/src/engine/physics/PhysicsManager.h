@@ -51,26 +51,3 @@ constexpr vector2 ToSFMLVector2(const _T other);
 #endif // !_PHYSICSMANAGER_H
 
 DECLARE_INSTANCE_FUNCTION(PhysicsManager, Physics)
-
-/*#define BEGIN_NAMESPACE_MANAGER(className, nameSpaceName)\
-	extern std::unique_ptr<className> __s_Instance_##className;\
-	namespace nameSpaceName {
-		
-#define MANAGER_FUNCTION(functionName, ...)\
-	static void functionName(__VA_ARGS__) 
-
-#define MANAGER_ARGS(className, functionName, ...)\
-	__s_Instance_##className->functionName(__VA_ARGS__);
-
-#define END_NAMESPACE_MANAGER() }
-
-BEGIN_NAMESPACE_MANAGER(PhysicsManager, Phys)
-MANAGER_FUNCTION(Add, Entity* entity, Collider::ColliderType colliderType)
-{
-	MANAGER_ARGS(PhysicsManager, Add, entity, colliderType)
-}
-MANAGER_FUNCTION(Remove, Entity* entity)
-{
-	MANAGER_ARGS(PhysicsManager, Remove, entity)
-}
-END_NAMESPACE_MANAGER()*/

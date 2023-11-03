@@ -2,6 +2,11 @@
 #define _MATH_H
 #include <SFML/Graphics.hpp>
 
+namespace Math
+{
+	constexpr float PI = 3.141592653589793238462643383279f;
+}
+
 using vector2 = sf::Vector2f;
 using vector2i = sf::Vector2i;
 using vector2u = sf::Vector2u;

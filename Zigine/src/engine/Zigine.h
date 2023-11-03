@@ -19,11 +19,6 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui-SFML.h"
 
-namespace Math
-{
-	constexpr float PI = 3.141592653589793238462643383279f;
-}
-
 #define __DISABLE_CURRENT_WARNINGS 4244 4267 4305
 #pragma warning(disable: __DISABLE_CURRENT_WARNINGS)
 
@@ -95,26 +90,6 @@ namespace CoreLog
 	if (!(condition)) {\
 		LOG(PrintMessageType::Error, format, __VA_ARGS__)\
 		return nullptr; }\
-
-#define DEFINE_MANAGER_ARGUMENT_FUNCTION(className, functionName, makeStatic)\
-	template <class _T, class... _Types>\
-	makeStatic _T* functionName(_Types&&... args);\
-
-#define SETUP_MANAGER_FUNCTION(className, baseClass, functionName)\
-	template<class _T, class... _Types>\
-	inline _T* className::functionName(_Types&& ...args)\
-	{\
-		_T* c = (new _T(std::forward<_Types>(args)...));\
-		std::unique_ptr<baseClass> uPtr { c };
-
-#define END_DECLARE_MANAGER_FUNCTION()\
-		return c;\
-	}\
-
-#define INITIALIZE_MANAGER_ARRAY(arrayName)\
-	arrayName.push_back(std::move(uPtr));
-
-#define ADD_MANAGER_FUNCTION_CODE
 
 #define interface_class class
 #define abstract_class class
