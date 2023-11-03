@@ -149,7 +149,7 @@ void GameState::OnUpdate()
 		ResetCardPanel();
 		ResetPlantShadow();
 
-		LOG(PrintMessageType::Default, "Plant spawned");
+		Log::Msg(LogType::Default, __FUNCTION__, "Plant spawned");
 	}
 
 	if (m_IsPlantSelected)

@@ -170,6 +170,7 @@
     <ClCompile Include="src\engine\animation\Animation.cpp" />
     <ClCompile Include="src\engine\core\ImguiLayer.cpp" />
     <ClCompile Include="src\engine\core\LayerStack.cpp" />
+    <ClCompile Include="src\engine\core\Log.cpp" />
     <ClCompile Include="src\engine\dragonBones\SFMLArmatureDisplay.cpp" />
     <ClCompile Include="src\engine\dragonBones\SFMLArmatureProxy.cpp" />
     <ClCompile Include="src\engine\dragonBones\SFMLFactory.cpp" />
@@ -260,6 +261,7 @@
     <ClInclude Include="src\engine\core\ImguiLayer.h" />
     <ClInclude Include="src\engine\core\Layer.h" />
     <ClInclude Include="src\engine\core\LayerStack.h" />
+    <ClInclude Include="src\engine\core\Log.h" />
     <ClInclude Include="src\engine\dragonBones\SFMLArmatureDisplay.h" />
     <ClInclude Include="src\engine\dragonBones\SFMLArmatureProxy.h" />
     <ClInclude Include="src\engine\dragonBones\SFMLDisplay.h" />

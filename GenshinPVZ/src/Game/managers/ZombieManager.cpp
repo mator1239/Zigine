@@ -91,7 +91,7 @@ void ZombieManager::LoadConfiguration(Zombie* zombie)
 	zombie->LoadAnimationTexture(zombieConfig.m_Texture, zombieConfig.m_Key,
 		zombieConfig.m_Skeleton, zombieConfig.m_Atlas);
 
-	LOG(PrintMessageType::Success, "%s%d", "Load zombie config with id: ", zombieId);
+	Log::Msg(LogType::Success, __FUNCTION__, "%s%d", "Load zombie config with id: ", zombieId);
 }
 
 void ZombieManager::Add(Zombie* zombie)
@@ -101,7 +101,7 @@ void ZombieManager::Add(Zombie* zombie)
 
 void ZombieManager::Remove(Zombie* zombie)
 {
-	LOG_RETURN(zombie == nullptr, "zombie was nullptr");
+	Log::Condition(zombie == nullptr, LogType::Error, __FUNCTION__, "zombie was nullptr");
 
 	auto it = std::find_if(m_Zombies.begin(), m_Zombies.end(), [&](Zombie* element) {
 		return zombie->GetIndex() == element->GetIndex();

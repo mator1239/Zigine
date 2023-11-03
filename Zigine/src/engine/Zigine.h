@@ -53,44 +53,6 @@
 		return &s_Instance;\
 	}\
 
-enum PrintMessageType
-{
-	Default,
-	Warning,
-	Success,
-	Error
-};
-
-namespace CoreLog
-{
-	static PrintMessageType m_Type;
-
-	void SetConsoleTextColor(PrintMessageType type = PrintMessageType::Default);
-	void PrintMessage(const std::string& functionName, const std::string& format, ...);
-}
-
-#define _T(s) s
-
-#define LOG(type, format, ...)\
-		CoreLog::SetConsoleTextColor(type);\
-		CoreLog::PrintMessage(_T(__FUNCTION__), format, __VA_ARGS__);\
-
-#define LOG_NULLPTR(ptr, rightptr, format, ...)\
-		if (ptr == nullptr) {\
-		LOG(PrintMessageType::Error, format, __VA_ARGS__)\
-		return nullptr;\
-		} else return rightptr;\
-
-#define LOG_RETURN(condition, format, ...)\
-	if (condition) {\
-		LOG(PrintMessageType::Error, format, __VA_ARGS__)\
-		return; }\
-
-#define LOG_CONDITION(condition, format, ...)\
-	if (!(condition)) {\
-		LOG(PrintMessageType::Error, format, __VA_ARGS__)\
-		return nullptr; }\
-
 #define interface_class class
 #define abstract_class class
 
@@ -104,5 +66,6 @@ namespace CoreLog
 
 #include "utils/Timer.h"
 #include "utils/Math.h"
+#include "core/Log.h"
 
 #endif // !_ZIGINE_H

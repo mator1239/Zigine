@@ -80,7 +80,7 @@ bool Zombie::UpdateAnimationState()
 
 void Zombie::TakeDamage(const float damage)
 {
-	LOG_RETURN(damage <= 0, "damage <= 0?");
+	Log::Condition(damage <= 0, LogType::Error, __FUNCTION__, "damage <= 0?");
 
 	m_Health -= damage;
 
@@ -90,7 +90,7 @@ void Zombie::TakeDamage(const float damage)
 
 void Zombie::SetEnemy(Entity* enemy)
 {
-	LOG_RETURN(enemy == nullptr, "enemy was nullptr. Wtf?");
+	Log::Condition(enemy == nullptr, LogType::Error, __FUNCTION__, "enemy was nullptr. Wtf?");
 
 	m_Enemy = enemy;
 }

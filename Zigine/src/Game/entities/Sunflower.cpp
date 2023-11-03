@@ -30,7 +30,7 @@ Sunflower::Sunflower()
 			vector2(1, 0), 10.0f, 0.1f);
 
 		m_SunDropTimer.Reset(NEXT_SUNDROP_TIME);
-		LOG(PrintMessageType::Success, "Sunflower dropped a sun");
+		Log::Msg(LogType::Success, __FUNCTION__, "Sunflower dropped a sun");
 	});
 
 	LoadTexture("PlantWallnut", "materials/plants/Wallnut_tex.png", true);

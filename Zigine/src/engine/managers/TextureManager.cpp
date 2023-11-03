@@ -31,7 +31,8 @@ sf::Texture* TextureManager::Load(const std::string& key, const std::string& fil
 	std::string path = Files()->GetGamePath() + "/" + filename;
 
 	sf::Texture* texture = new sf::Texture();
-	LOG_CONDITION(texture->loadFromFile(path), "Failed to load texture: %s", path);
+	Log::Condition(texture->loadFromFile(path) == false, LogType::Error, __FUNCTION__, 
+		"Failed to load texture: %s", path);
 	texture->setSmooth(true);
 
 	m_Textures.emplace(key, texture);
