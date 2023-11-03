@@ -15,10 +15,10 @@ namespace Log
 	void Msg(LogType type, const std::string& functionName, const std::string& format, ...);
 
 	template <class _T, class... Args>
-	_T Condition(_T condition, LogType type, const std::string& functionName, const std::string& format, Args&&... args)
+	_T Condition(_T condition, LogType type, const std::string& functionName, const std::string& format, Args... args)
 	{
 		if (condition)
-			Msg(type, functionName, format, std::forward<Args>(args)...);
+			Msg(type, functionName, format, args...);
 
 		return condition;
 	}

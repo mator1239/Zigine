@@ -9,12 +9,15 @@ public:
 	sf::Sound* LoadSound(const std::string& key, const std::string& path);
 	sf::Texture* LoadTexture(const std::string& key, const std::string& path);
 
+	const std::string& Localize(const std::string& tag);
+
 	bool GetModel(const std::string& key);
 	sf::Sound* GetSound(const std::string& key);
 	sf::Texture* GetTexture(const std::string& key);
 private:
 	std::unordered_map<std::string, sf::Sound*> m_Sounds;
 	std::unordered_map<std::string, sf::Texture*> m_Textures;
+	std::unordered_map<std::string, std::string> m_Localizes;
 };
 
 DECLARE_INSTANCE_FUNCTION(ResourceManager, Resources)

@@ -32,13 +32,12 @@ Projectile::Projectile(const vector2& position, const vector2& direction, const 
 	fixture.userData.pointer = reinterpret_cast<uintptr_t>(this);
 
 	m_Body->CreateFixture(&fixture);
+	m_Body->SetLinearVelocity(ToBoxVector2(m_Direction / m_Speed));
 }
 
 void Projectile::Update()
 {
 	Move(m_Direction * m_Speed);
-
-	m_Body->SetTransform(ToBoxVector2(GetPosition()), 0);
 }
 
 bool Projectile::TakeDamage(Entity* entity)

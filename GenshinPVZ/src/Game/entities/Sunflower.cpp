@@ -37,9 +37,6 @@ Sunflower::Sunflower()
 	LoadAnimationTexture("PlantWallnut", "game/animations/plants/Wallnut_ske.json",
 		"game/animations/plants/Wallnut_tex.json");
 	PlayAnimation("idle");
-
-	//Physics()->Add(this, Collider::Box, vector2(16, 16), vector2(16, 16));
-	//m_Body->SetCollisionGroup(PLANT_COLLISION_GROUP);
 }
 
 void Sunflower::Update()

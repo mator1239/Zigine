@@ -20,6 +20,12 @@ sf::Texture* ResourceManager::LoadTexture(const std::string& key, const std::str
     return nullptr;
 }
 
+const std::string& ResourceManager::Localize(const std::string& tag)
+{
+    // (TODO): Implement
+    return "Default";
+}
+
 bool ResourceManager::GetModel(const std::string& key)
 {
     // (TODO): Implement
